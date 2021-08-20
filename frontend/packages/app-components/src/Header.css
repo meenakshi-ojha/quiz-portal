@@ -1,0 +1,9 @@
+.header {
+    height: 70 px;
+    text-align: left;
+    background: black;
+  }
+  .header img {
+    width: 202px;
+    height: 65px;
+  }
