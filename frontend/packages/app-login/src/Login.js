@@ -1,26 +1,28 @@
 import React, { useState } from 'react';
 import './Login.css';
 import axios from 'axios';
-import { setUserSession } from './Utils/Common';
+import { setUserSession,removeUserSession } from './Utils/Common';
 
-function Login(props) {
+export const Login=(props)=> {
   const [loading, setLoading] = useState(false);
   const email = useFormInput('');
   const password = useFormInput('');
   const [error, setError] = useState(null);;
- 
+ const handleLogout =()=>
+ {
+removeUserSession();
+ }
   // handle button click of login form
   const handleLogin = () => {
     setError(null);
     setLoading(true);
     axios.post('http://localhost:3000/user/login', { email: email.value, password: password.value }).then(response => {
       setLoading(false);
-      setUserSession(response.data.token, response.data.user);
+      setUserSession(response.data.token, response.data.username);
       props.history.push('/dashboard');
     }).catch(error => {
       setLoading(false);
-      if (error.response.status === 401) setError(error.response.data.message);
-      else setError("Something went wrong. Please try again later.");
+      setError("Something went wrong. Please try again later.");
     });
   }
 
@@ -35,7 +37,6 @@ function Login(props) {
     <input type="password" placeholder="Enter Password" {...password} required />
 
     <button type="submit" onClick={handleLogin}>Login</button>
-    
     </div>
   );
 }
@@ -50,6 +51,4 @@ const useFormInput = initialValue => {
     value,
     onChange: handleChange
   }
-}
- 
-export default Login;
+};
