@@ -15,10 +15,8 @@ export const Register=(props)=> {
 
     setError(null);
     axios.post('http://localhost:3000/users', { email: email.value, password: password.value,name: name.value, password_confirmation: password_confirmation.value,username:username.value }).then(response => {
-      if (window.confirm('User Registration Completed. Go to Login Page.'))
-      {
-      window.open('http://localhost:8080/');
-      };
+      window.close('http://localhost:8080/Register');
+      window.open('http://localhost:8080');
     }).catch(error => {
       setError("Something went wrong. Please try again later.");
     });

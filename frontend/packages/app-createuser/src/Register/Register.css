@@ -24,17 +24,17 @@ input[type=text], input[type=password] {
   }
   
   .container {
-      width: 50%;
-      margin-top: 2%;
-      margin-right: 2%;
-    padding: 16px;
+    width: 55%;
+    margin-top: 0.5%;
+    padding: 12px;
     float: right;
     border: 3px solid #f1f1f1;
+    align-items: left;
   }
   
   /* The "Forgot password" text */
-  span.psw {
-    float: right;
+  lable{
+    align-self: left;
     padding-top: 16px;
   }
     

@@ -4,6 +4,7 @@ const packages=[];
 packages.push(path.join(__dirname, "../app-createuser"));
 packages.push(path.join(__dirname, "../app-home"));
 packages.push(path.join(__dirname, "../app-components"));
+packages.push(path.join(__dirname, "../app-login"));
 module.exports = {
   webpack: {
     alias: {},

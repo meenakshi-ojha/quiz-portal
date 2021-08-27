@@ -1,17 +1,13 @@
 import React, { useState } from 'react';
 import './Login.css';
 import axios from 'axios';
-import { setUserSession,removeUserSession } from './Utils/Common';
-
+import { setUserSession } from '@packages/app-login';
+import { NavLink } from 'react-router-dom';
 export const Login=(props)=> {
   const [loading, setLoading] = useState(false);
   const email = useFormInput('');
   const password = useFormInput('');
-  const [error, setError] = useState(null);;
- const handleLogout =()=>
- {
-removeUserSession();
- }
+  const [error, setError] = useState(null);
   // handle button click of login form
   const handleLogin = () => {
     setError(null);
@@ -19,7 +15,8 @@ removeUserSession();
     axios.post('http://localhost:3000/user/login', { email: email.value, password: password.value }).then(response => {
       setLoading(false);
       setUserSession(response.data.token, response.data.username);
-      props.history.push('/dashboard');
+      window.close('http://localhost:8080');
+      window.open('http://localhost:8080/dashboard');
     }).catch(error => {
       setLoading(false);
       setError("Something went wrong. Please try again later.");
@@ -37,6 +34,9 @@ removeUserSession();
     <input type="password" placeholder="Enter Password" {...password} required />
 
     <button type="submit" onClick={handleLogin}>Login</button>
+    <div className="registerdiv">
+            <NavLink exact to="/Register">Not a user? Register</NavLink>
+    </div>
     </div>
   );
 }
