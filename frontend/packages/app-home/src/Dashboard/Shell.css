@@ -1,0 +1,27 @@
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background-color: black;
+  }
+  li{
+      padding: 15%;
+  }
+  li a:link, a:visited  {
+    display: block;
+    color: white;
+    padding: 4%;
+    text-decoration: none;
+    background-color: black;
+  }
+  li a:hover, a:active {
+    font-size: 110%;
+  }
+  .shell{
+      height: 100%;
+      background-color: black;
+      width:10%;
+      position: fixed;
+      float: left;
+  }

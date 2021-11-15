@@ -8,7 +8,7 @@ input[type=text], input[type=password] {
   }
   
   /* Set a style for all buttons */
-  button {
+  .container input[type=button] {
     background-color: rgb(51, 47, 47);
     color: white;
     padding: 14px 20px;
@@ -19,7 +19,7 @@ input[type=text], input[type=password] {
   }
   
   /* Add a hover effect for buttons */
-  button:hover {
+  .container input[type=button]:hover {
     opacity: 0.8;
   }
   
