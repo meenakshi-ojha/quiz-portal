@@ -8,9 +8,10 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
-    "@packages/app-createuser":"0.1.0",
-    "@packages/app-login":"0.1.0",
-    "@packages/app-home":"0.1.0",
+    "@packages/app-createuser": "0.1.0",
+    "@packages/app-login": "0.1.0",
+    "@packages/app-home": "0.1.0",
+    "@packages/page-quiz": "0.1.0",
     "cross-env": "5.0.5"
   },
   "scripts": {

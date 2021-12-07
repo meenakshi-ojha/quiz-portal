@@ -1,9 +1,10 @@
 const path = require("path");
 const { getLoader, loaderByName } = require("@craco/craco");
-const packages=[];
+const packages = [];
 packages.push(path.join(__dirname, "../app-login"));
 packages.push(path.join(__dirname, "../app-home"));
 packages.push(path.join(__dirname, "../app-components"));
+packages.push(path.join(__dirname, "../page-quiz"));
 module.exports = {
   webpack: {
     alias: {},
@@ -20,6 +21,6 @@ module.exports = {
         match.loader.include = include.concat(packages);
       }
       return webpackConfig;
-    }
-  }
+    },
+  },
 };
