@@ -1,7 +1,9 @@
 import React from "react";
-import axios from "axios";
+
 import { getToken } from "@packages/app-login";
 import "./Allquizzes.css";
+import { NavLink } from "react-router-dom";
+
 export const AllQuizzes = () => {
   const [quizzes, setQuizzes] = React.useState([]);
 
@@ -24,25 +26,40 @@ export const AllQuizzes = () => {
       console.log("error", error);
     }
   };
+
   React.useEffect(() => {
     fetchData();
-  });
+  }, []);
   return (
     <div className="Allquizzes">
       <br />
       <table className="quizzes">
-        <tr>
-          <th>Quiz Id</th>
-          <th>Quiz Name</th>
-          <th>Status</th>
-        </tr>
-        {quizzes.map((quiz, i) => (
-          <tr key={i}>
-            <td>{quiz.id}</td>
-            <td>{quiz.title}</td>
-            <td>{quiz.open ? "Open" : "Closed"}</td>
+        <thead>
+          <tr>
+            <th>Quiz Id</th>
+            <th>Quiz Name</th>
+            <th>Status</th>
+            <th>Quiz</th>
           </tr>
-        ))}
+        </thead>
+        <tbody>
+          {quizzes.map((quiz, i) => (
+            <>
+              <tr key={`quiz-${i}`}>
+                <td>{quiz.id}</td>
+                <td>
+                  <p>{quiz.title}</p>
+                </td>
+                <td>{quiz.open ? "Open" : "Closed"}</td>
+                <td>
+                  <NavLink exact to={`/quiz/${quiz.id}`}>
+                    see quiz
+                  </NavLink>
+                </td>
+              </tr>
+            </>
+          ))}
+        </tbody>
       </table>
     </div>
   );

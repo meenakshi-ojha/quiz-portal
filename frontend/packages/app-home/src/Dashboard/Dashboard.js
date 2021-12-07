@@ -5,6 +5,7 @@ import { Footer } from "@packages/app-components";
 import { Shell } from "./Shell";
 import "./Dashboard.css";
 import { AllQuizzes } from "./AllQuizzes";
+
 export const Dashboard = () => {
   const user = getUser();
 

@@ -15,7 +15,7 @@
 
 .quizzes tr:nth-child(even){background-color: #f2f2f2;}
 
-.quizzes tr:hover {background-color: #ddd;}
+
 
 .quizzes th {
   padding-top: 12px;
