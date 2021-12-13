@@ -10,8 +10,8 @@ export const Header = (props) => (
         <KeyboardArrowDownIcon />
       </button>
       <div className="dropdown-content">
-        {props.link1 instanceof String ? (
-          <p>{props.link1}</p>
+        {props.link1 === null ? (
+          <span>{props.link1data}</span>
         ) : (
           <input type="button" onClick={props.link1} value={props.link1data} />
         )}

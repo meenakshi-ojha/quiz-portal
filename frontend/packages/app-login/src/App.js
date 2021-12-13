@@ -7,6 +7,7 @@ import PrivateRoute from "./Utils/PrivateRoute";
 import PublicRoute from "./Utils/PublicRoute";
 import { LoginPage } from "./Login/LoginPage";
 import { RegisterPage } from "@packages/app-createuser";
+import { CreateQuiz } from "@packages/page-quiz";
 import { Quiz } from "@packages/app-home";
 function App() {
   return (
@@ -16,11 +17,8 @@ function App() {
           <PublicRoute exact path="/" component={LoginPage} />
           <PublicRoute exact path="/Register" component={RegisterPage} />
           <PrivateRoute exact path="/Dashboard" component={Dashboard} />
-          <PrivateRoute
-            exact
-            path={`/quiz/:quizid`}
-            component={Quiz}
-          ></PrivateRoute>
+          <PrivateRoute exact path={`/quiz/:quizid`} component={Quiz} />
+          <PrivateRoute exact path="/createquiz" component={CreateQuiz} />
         </Switch>
       </BrowserRouter>
     </div>

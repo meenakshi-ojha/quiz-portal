@@ -28,13 +28,13 @@ export const Login = (props) => {
 
   return (
     <div className="container">
-      <label for="uname">
+      <label htmlFor="uname">
         <b>Email</b>
       </label>
       <br />
       <input type="text" placeholder="Enter Email" {...email} required />
       <br />
-      <label for="psw">
+      <label htmlFor="psw">
         <b>Password</b>
       </label>
       <br />

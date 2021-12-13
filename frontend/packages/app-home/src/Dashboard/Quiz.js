@@ -44,7 +44,7 @@ export const Quiz = (props) => {
   return (
     <>
       <Header
-        link1="#"
+        link1={null}
         link1data={user}
         link2={handleLogout}
         link2data="Logout"

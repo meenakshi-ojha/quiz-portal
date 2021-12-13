@@ -44,20 +44,18 @@ export const AllQuizzes = () => {
         </thead>
         <tbody>
           {quizzes.map((quiz, i) => (
-            <>
-              <tr key={`quiz-${i}`}>
-                <td>{quiz.id}</td>
-                <td>
-                  <p>{quiz.title}</p>
-                </td>
-                <td>{quiz.open ? "Open" : "Closed"}</td>
-                <td>
-                  <NavLink exact to={`/quiz/${quiz.id}`}>
-                    see quiz
-                  </NavLink>
-                </td>
-              </tr>
-            </>
+            <tr key={`quiz-${i}`}>
+              <td>{quiz.id}</td>
+              <td>
+                <p>{quiz.title}</p>
+              </td>
+              <td>{quiz.open ? "Open" : "Closed"}</td>
+              <td>
+                <NavLink exact to={`/quiz/${quiz.id}`}>
+                  see quiz
+                </NavLink>
+              </td>
+            </tr>
           ))}
         </tbody>
       </table>
