@@ -18,7 +18,9 @@ export const AddMCQOption = (props) => {
   let token = getToken();
   let st1 = "Bearer ";
   const AuthStr = st1.concat(token);
-
+  const path = props.location.pathname.slice(6);
+  const i = path.indexOf("/");
+  const quizid = path.slice(0, i);
   const handleOption = async () => {
     const requestOptions = {
       method: "POST",
@@ -30,7 +32,8 @@ export const AddMCQOption = (props) => {
       requestOptions
     );
     const ans = await response.json();
-    window.location.href = `http://localhost:8080/dashboard`;
+
+    window.location.href = `http://localhost:8080/quiz/${quizid}`;
   };
 
   // handle click event of logout button

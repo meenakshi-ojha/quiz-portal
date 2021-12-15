@@ -2,11 +2,10 @@ const path = require("path");
 const { getLoader, loaderByName } = require("@craco/craco");
 const packages = [];
 packages.push(path.join(__dirname, "../app-createuser"));
-packages.push(path.join(__dirname, "../app-home"));
-packages.push(path.join(__dirname, "../app-components"));
 packages.push(path.join(__dirname, "../app-login"));
+packages.push(path.join(__dirname, "../app-componets"));
+packages.push(path.join(__dirname, "../app-home"));
 packages.push(path.join(__dirname, "../page-quiz"));
-packages.push(path.join(__dirname, "../page-guest"));
 
 module.exports = {
   webpack: {

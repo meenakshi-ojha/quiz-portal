@@ -14,7 +14,8 @@
     "@packages/app-createuser": "0.1.0",
     "@packages/app-home": "0.1.0",
     "@packages/app-components": "0.1.0",
-    "@packages/app-login": "0.1.0"
+    "@packages/app-login": "0.1.0",
+    "@packages/page-guest": "0.1.0"
   },
   "scripts": {
     "start": "craco start",

@@ -5,6 +5,8 @@ packages.push(path.join(__dirname, "../app-login"));
 packages.push(path.join(__dirname, "../app-home"));
 packages.push(path.join(__dirname, "../app-components"));
 packages.push(path.join(__dirname, "../page-quiz"));
+packages.push(path.join(__dirname, "../page-guest"));
+
 module.exports = {
   webpack: {
     alias: {},

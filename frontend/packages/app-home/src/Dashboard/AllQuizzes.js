@@ -6,6 +6,7 @@ import { NavLink } from "react-router-dom";
 
 export const AllQuizzes = () => {
   const [quizzes, setQuizzes] = React.useState([]);
+  const [data, setData] = React.useState();
 
   let token = getToken();
   let st1 = "Bearer ";
@@ -26,9 +27,32 @@ export const AllQuizzes = () => {
       console.log("error", error);
     }
   };
+  const deleteQuiz = async (id) => {
+    let text =
+      "Are you sure you want to delete this quiz!\nEither OK or Cancel.";
+    if (window.confirm(text) === true) {
+      try {
+        const response = await fetch(`http://localhost:3001/quiz/${id}`, {
+          method: "DELETE",
+          headers: new Headers({
+            Authorization: AuthStr,
+          }),
+        });
+        const json = await response.json();
+        setData(json);
+        console.log(data);
+      } catch (error) {
+        console.log("error", error);
+      }
+      window.location.reload();
+    } else {
+      window.location.reload();
+    }
+  };
 
   React.useEffect(() => {
     fetchData();
+    console.log("token", token);
   }, []);
   return (
     <div className="Allquizzes">

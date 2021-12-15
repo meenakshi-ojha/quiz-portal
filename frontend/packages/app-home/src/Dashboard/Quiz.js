@@ -39,6 +39,25 @@ export const Quiz = (props) => {
       console.log("error", error);
     }
   };
+  const handleCloseQuiz = async () => {
+    let text =
+      "Are you sure you want to Close this quiz. You will not be able to add any more questions!\nEither OK or Cancel.";
+
+    if (window.confirm(text) === true) {
+      const requestOptions = {
+        method: "PUT",
+        headers: { "Content-Type": "application/json", Authorization: AuthStr },
+        body: JSON.stringify({ title: quiz.quiz.title, open: "false" }),
+      };
+      const response = await fetch(
+        `http://localhost:3001/quiz/${props.location.pathname.slice(6)}`,
+        requestOptions
+      );
+      const data = await response.json();
+      window.location.reload();
+    } else {
+    }
+  };
 
   React.useEffect(() => {
     fetchData();
@@ -53,7 +72,21 @@ export const Quiz = (props) => {
           link2data="Logout"
         ></Header>
         <h1>Title: {quiz.quiz && quiz.quiz.title}</h1>
-        <h4>Status: {quiz.quiz && quiz.quiz.open ? "Open" : "Closed"}</h4>
+        <h4>
+          Status:{" "}
+          {quiz.quiz && quiz.quiz.open ? (
+            <>
+              <span>"Open"</span>
+              <br />
+              <button className={"ans"} type="submit" onClick={handleCloseQuiz}>
+                Close Quiz
+              </button>
+            </>
+          ) : (
+            "Closed"
+          )}
+        </h4>
+        {}
         <h3>Text Question</h3>
         <h4>
           {quiz.quiz && quiz.quiz.open && (
@@ -66,7 +99,7 @@ export const Quiz = (props) => {
           )}
         </h4>
         {quiz.text_questions && quiz.text_questions.length !== 0 ? (
-          getTextQ(quiz.text_questions)
+          getTextQ(quiz.text_questions, quiz.quiz)
         ) : (
           <p>No Text Questions</p>
         )}
@@ -79,7 +112,7 @@ export const Quiz = (props) => {
           )}
         </h4>
         {quiz.mcq_questions && quiz.mcq_questions.length !== 0 ? (
-          getMCQs(quiz.mcq_questions)
+          getMCQs(quiz.mcq_questions, quiz.quiz)
         ) : (
           <p>No MCQ Questions</p>
         )}
