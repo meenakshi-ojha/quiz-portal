@@ -1,0 +1,53 @@
+a:link,
+a:visited {
+  background-color: black;
+  color: white;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+a:hover,
+a:active {
+  background-color: grey;
+}
+div.innerfixed {
+  padding: 5%;
+  border-style: double;
+  border-bottom-width: 5px;
+  border-color: black;
+  min-width: 100%;
+  text-align: left;
+}
+div .con {
+  min-height: 100%;
+  min-width: 100%;
+  align-items: center;
+  text-align: center;
+}
+.ans {
+  background-color: #062407; /* Green */
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  max-width: 10%;
+  transition-duration: 0.4s;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.round {
+  background-color: white;
+  color: black;
+  border: none;
+  align-items: center;
+  text-decoration: none;
+  cursor: pointer;
+  max-width: 5%;
+  max-height: 2%;
+}

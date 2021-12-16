@@ -27,28 +27,6 @@ export const AllQuizzes = () => {
       console.log("error", error);
     }
   };
-  const deleteQuiz = async (id) => {
-    let text =
-      "Are you sure you want to delete this quiz!\nEither OK or Cancel.";
-    if (window.confirm(text) === true) {
-      try {
-        const response = await fetch(`http://localhost:3001/quiz/${id}`, {
-          method: "DELETE",
-          headers: new Headers({
-            Authorization: AuthStr,
-          }),
-        });
-        const json = await response.json();
-        setData(json);
-        console.log(data);
-      } catch (error) {
-        console.log("error", error);
-      }
-      window.location.reload();
-    } else {
-      window.location.reload();
-    }
-  };
 
   React.useEffect(() => {
     fetchData();
@@ -64,6 +42,7 @@ export const AllQuizzes = () => {
             <th>Quiz Name</th>
             <th>Status</th>
             <th>Quiz</th>
+            <th>Key</th>
           </tr>
         </thead>
         <tbody>
@@ -78,6 +57,9 @@ export const AllQuizzes = () => {
                 <NavLink exact to={`/quiz/${quiz.id}`}>
                   see quiz
                 </NavLink>
+              </td>
+              <td>
+                {quiz.open ? "Key can't be generated.Quiz Open" : btoa(quiz.id)}
               </td>
             </tr>
           ))}

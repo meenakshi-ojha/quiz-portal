@@ -36,16 +36,20 @@ class QuizzesController < ApplicationController
   def guestquiz
     @quiz_text= @quiz.text_questions.all
     @quiz_mcq=@quiz.mcq_questions.all
-    
+    responsetext=[]
+    @quiz_text.each do |question|
+      @text_questions_answer=question.text_question_answer
+      responsetext.push({ :question => question, :answer => @text_questions_answer })
+     end
      responsemcq=[]
   
      @quiz_mcq.each do |question|
-      
+      @mcq_questions_answer=question.mcq_question_answer
       @mcq_question_option=question.mcq_question_options.all
-      responsemcq.push({ :question => question,:option =>@mcq_question_option })
+      responsemcq.push({ :question => question,:option =>@mcq_question_option, :answer => @mcq_questions_answer })
      end
      response=[]
-     response.push({:quiz=>@quiz ,:text_questions=>@quiz_text,:mcq_questions =>responsemcq})
+     response.push({:quiz=>@quiz ,:text_questions=>responsetext,:mcq_questions =>responsemcq})
     render json: response
   
   end
