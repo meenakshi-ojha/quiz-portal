@@ -5,7 +5,7 @@ packages.push(path.join(__dirname, "../app-createuser"));
 packages.push(path.join(__dirname, "../app-login"));
 packages.push(path.join(__dirname, "../app-componets"));
 packages.push(path.join(__dirname, "../app-home"));
-packages.push(path.join(__dirname, "../page-guest"));
+// packages.push(path.join(__dirname, "../page-guest"));
 
 module.exports = {
   webpack: {

@@ -15,11 +15,10 @@
     "@packages/app-home": "0.1.0",
     "@packages/app-components": "0.1.0",
     "@packages/page-quiz": "0.1.0",
-    "@packages/page-guest": "0.1.0",
     "cross-env": "5.0.5"
   },
   "scripts": {
-    "start": "SET PORT=8080 &&craco start",
+    "start": "SET PORT=8080 && craco start",
     "build": "craco build",
     "test": "craco test",
     "eject": "craco eject"

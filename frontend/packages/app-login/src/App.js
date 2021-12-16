@@ -10,6 +10,7 @@ import { RegisterPage } from "@packages/app-createuser";
 import { CreateQuiz } from "@packages/page-quiz";
 import { AddTextQuestion } from "@packages/page-quiz";
 import { AddMCQuestion, AddMCQOption } from "@packages/page-quiz";
+// import { GuestRegisterPage } from "@packages/page-guest";
 
 import { Quiz } from "@packages/app-home";
 function App() {
@@ -19,6 +20,12 @@ function App() {
         <Switch>
           <PublicRoute exact path="/" component={LoginPage} />
           <PublicRoute exact path="/Register" component={RegisterPage} />
+          {/* <PublicRoute
+            exact
+            path="/GuestRegister"
+            component={GuestRegisterPage}
+          /> */}
+
           <PrivateRoute exact path="/Dashboard" component={Dashboard} />
           <PrivateRoute exact path={`/quiz/:quizid`} component={Quiz} />
           <PrivateRoute exact path="/createquiz" component={CreateQuiz} />

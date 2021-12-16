@@ -12,7 +12,6 @@
     "@packages/app-login": "0.1.0",
     "@packages/app-home": "0.1.0",
     "@packages/page-quiz": "0.1.0",
-    "@packages/page-guest": "0.1.0",
     "cross-env": "5.0.5"
   },
   "scripts": {
