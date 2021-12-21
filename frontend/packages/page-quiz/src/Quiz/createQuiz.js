@@ -1,6 +1,5 @@
 import React from "react";
 import { getUser, removeUserSession, getToken } from "@packages/app-login";
-import axios from "axios";
 import { Header } from "@packages/app-components";
 import { Footer } from "@packages/app-components";
 import { Shell } from "@packages/app-home";
@@ -30,6 +29,7 @@ export const CreateQuiz = () => {
       setError("Some error occured!try later");
     }
     setData(data);
+    window.location.href = "http://localhost:8080/dashboard";
   };
 
   // handle click event of logout button

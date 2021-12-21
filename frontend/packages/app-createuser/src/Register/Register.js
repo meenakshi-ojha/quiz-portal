@@ -23,7 +23,7 @@ export const Register = (props) => {
       })
       .then((response) => {
         window.close("http://localhost:8080/Register");
-        window.open("http://localhost:8080");
+        window.location.href = "http://localhost:8080";
       })
       .catch((error) => {
         setError("Something went wrong. Please try again later.");
@@ -75,6 +75,7 @@ export const Register = (props) => {
       <button type="submit" onClick={handleRegister}>
         Register
       </button>
+      {error && <p style={{ color: "red" }}>{error}</p>}
     </div>
   );
 };

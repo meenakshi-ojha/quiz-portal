@@ -46,7 +46,7 @@ export const GuestQuiz = (props) => {
               type="radio"
               name="mcq"
               value={option[i].id}
-              onChange={mcqanswer.onChange}
+              onChange={() => mcqanswer.setValue(option[i].id)}
             />
           </b>{" "}
           {option[i].option}
@@ -180,7 +180,7 @@ export const GuestQuiz = (props) => {
             quiz.mcq_questions &&
             quiz.mcq_questions[m] &&
             quiz.mcq_questions[m].answer &&
-            answermcq.value ===
+            mcqanswer.value ===
               quiz.mcq_questions[j].answer.mcq_question_option_id
               ? () => {
                   alert("correct");
@@ -199,7 +199,7 @@ export const GuestQuiz = (props) => {
             quiz.mcq_questions && j < quiz.mcq_questions.length - 1
               ? () => {
                   setm(m + 1);
-                  answermcq.setValue("");
+                  mcqanswer.setValue("");
                 }
               : () => alert("no more ques")
           }

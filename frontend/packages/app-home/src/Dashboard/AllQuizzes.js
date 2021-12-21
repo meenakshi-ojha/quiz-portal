@@ -30,7 +30,6 @@ export const AllQuizzes = () => {
 
   React.useEffect(() => {
     fetchData();
-    console.log("token", token);
   }, []);
   return (
     <div className="Allquizzes">
